@@ -1,13 +1,10 @@
 package com.mybank.program.controllers;
-<<<<<<< HEAD
 
 import com.mybank.program.data.BankData;
 import com.mybank.program.models.*;
 
-=======
 import com.mybank.program.data.BankData;
 import com.mybank.program.models.*;
->>>>>>> origin/main
 import java.util.Scanner;
 
 import static com.mybank.program.models.CostumerType.BUSINESS;
