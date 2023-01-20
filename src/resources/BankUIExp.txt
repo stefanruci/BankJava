@@ -1,0 +1,45 @@
+The code is a program that simulates a bank. 
+The program has a menu where you can choose to login or quit the program.
+
+If you choose to login, you will be asked for your client number and password. 
+
+If the client number and password are correct,
+you will be logged in and get access to the costumer dashboard menu. 
+In this menu you can deposit money, withdraw money, save all data in files, 
+load data from files and quit the program.
+
+If you choose to deposit money, you will be asked for an account number 
+and an amount of money that you want to deposit. 
+If the account number is correct, the amount of money will be deposited in 
+that account.
+
+If you choose to withdraw money, you will be asked for an account number and 
+an amount of money that you want to withdraw. If the account number is correct, 
+the amount of money will be withdrawn from that account if there is enough 
+balance in it.
+
+If there is not enough balance in the account, a message will appear saying 
+that there is not enough balance in it and then you will return to the costumer
+dashboard menu. If there is enough balance in it, a message saying that
+the transaction was successful will appear and then you will return to the 
+costumer dashboard menu.
+
+ If there are more than 3 withdrawals from this account
+this month, a fee of 1 dollar  they 
+use at this bank  will also be withdrawn from this account 
+when withdrawing money from it.
+
+If you choose to save all data in files, all data about accounts 
+and transactions at this bank  will be saved 
+in files on your computer . 
+The data about accounts are saved in two different files: one file with
+ data about saving accounts and one file with data about checking accounts.
+  The data about transactions are saved in one file with all transactions 
+  at this bank . A message saying that 
+  all data were successfully saved appears after saving all data in files 
+  on your computer . 
+  Then you return to the costumer dashboard menu where you can do other
+   things like depositing or withdrawing money or quitting the program or 
+   whatever else people do at banks .
+
+If you choose to load data from files, all data from file will be loaded.
