@@ -1,20 +1,37 @@
 package com.mybank.program.models;
 
-public class Costumer  {
+import java.time.LocalDate;
+
+public class Costumer {
+    private int costumerNr;
+    private LocalDate firstRegistration;
     private String id;
     private String name;
     private String surname;
+    private String email;
     private String gender;
-    private SavingsAccount[] savingsAccounts;
-    private CheckingAccount[] checkingAccounts;
+    private boolean married;
     private String password;
 
-    public Costumer(String id, String name, String surname, String gender, String password) {
+    public Costumer(int costumerNr, LocalDate firstRegistration, String id, String name, String surname, String email, String gender, boolean married, String password) {
+        this.costumerNr = costumerNr;
+        this.firstRegistration = firstRegistration;
         this.id = id;
         this.name = name;
         this.surname = surname;
+        this.email = email;
         this.gender = gender;
+        this.married = married;
         this.password = password;
+    }
+
+
+    public int getCostumerNr() {
+        return costumerNr;
+    }
+
+    public void setCostumerNr(int costumerNr) {
+        this.costumerNr = costumerNr;
     }
 
     public String getId() {
@@ -49,14 +66,12 @@ public class Costumer  {
         this.gender = gender;
     }
 
-    @Override
-    public String toString() {
-        return "Costumer{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", gender='" + gender + '\'' +
-                '}';
+    public boolean isMarried() {
+        return married;
+    }
+
+    public void setMarried(boolean married) {
+        this.married = married;
     }
 
     public String getPassword() {
@@ -67,11 +82,37 @@ public class Costumer  {
         this.password = password;
     }
 
-    public SavingsAccount[] getSavingsAccounts() {
-        return savingsAccounts;
+
+    public String getEmail() {
+        return email;
     }
 
-    public CheckingAccount[] getCheckingAccounts() {
-        return checkingAccounts;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    public LocalDate getFirstRegistration() {
+        return firstRegistration;
+    }
+
+    public void setFirstRegistration(LocalDate firstRegistration) {
+        this.firstRegistration = firstRegistration;
+    }
+
+    @Override
+    public String toString() {
+        return "Costumer{" +
+                "costumerNr='" + costumerNr + '\'' +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", gender='" + gender + '\'' +
+                ", married=" + married +
+                '}';
+    }
+
+    public String covertToCSVLine() {
+        return costumerNr + "," + firstRegistration + "," + id + "," + name + "," + surname + "," + email + "," + gender + "," + married + "," + password;
     }
 }

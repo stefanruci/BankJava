@@ -2,25 +2,30 @@ package com.mybank.program.models;
 
 public class CheckingAccount extends Account{
 
-    public double maintanceFee;
+    private double maintenanceFee;
 
-    public CheckingAccount(String accNr, String iban, long amount, double maintanceFee, String costumerId, String currency, Transaction[] transactions) {
-        super(costumerId, accNr, iban, amount, currency, transactions);
-        this.maintanceFee = maintanceFee;
+    public CheckingAccount(int costumerId, String accNr, String iban, double amount, String currency, double maintenanceFee) {
+        super(costumerId, accNr, iban, amount, currency);
+        this.maintenanceFee = maintenanceFee;
     }
 
     public double getMaintenanceFee() {
-        return maintanceFee;
+        return maintenanceFee;
     }
 
     public void setMaintenanceFee(double maintenanceFee) {
-        this.maintanceFee = maintenanceFee;
+        this.maintenanceFee = maintenanceFee;
     }
 
+
+    @Override
+    public String covertToCSVLine() {
+        return super.covertToCSVLine() + "," + maintenanceFee;
+    }
     @Override
     public String toString() {
         return "CheckingAccount{" +
-                "maintanceFee=" + maintanceFee +
+                "maintenanceFee=" + maintenanceFee +
                 "} " + super.toString();
     }
 }

@@ -5,6 +5,12 @@ public class Bank {
     private String address;
     private String swiftCode;
 
+    public Bank(String name, String address, String swiftCode) {
+        this.name = name;
+        this.address = address;
+        this.swiftCode = swiftCode;
+    }
+
     public String getName() {
         return name;
     }
@@ -27,6 +33,11 @@ public class Bank {
 
     public void setSwiftCode(String swiftCode) {
         this.swiftCode = swiftCode;
+    }
+
+
+    public String covertToCSVLine() {
+        return name + "," + address + "," + swiftCode;
     }
 
     @Override

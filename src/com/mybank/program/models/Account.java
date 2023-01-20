@@ -1,25 +1,23 @@
 package com.mybank.program.models;
 
 public class Account {
-    private String costumerId;
+    private int costumerNr;
     private String accNr;
     private String iban;
-    private long amount;
+    private double amount;
     private String currency;
-    private Transaction[] transactions;
 
 
-    public String getAccNr() {
-        return accNr;
-    }
-
-    public Account(String costumerId, String accNr, String iban, long amount, String currency, Transaction[] transactions) {
-        this.costumerId = costumerId;
+    public Account(int costumerNr, String accNr, String iban, double amount, String currency) {
+        this.costumerNr = costumerNr;
         this.accNr = accNr;
         this.iban = iban;
         this.amount = amount;
         this.currency = currency;
-        this.transactions = transactions;
+    }
+
+    public String getAccNr() {
+        return accNr;
     }
 
     public void setAccNr(String accNr) {
@@ -34,29 +32,20 @@ public class Account {
         this.iban = iban;
     }
 
-    public long getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "accNr='" + accNr + '\'' +
-                ", iban='" + iban + '\'' +
-                ", amount=" + amount +
-                '}';
+    public int getCostumerNr() {
+        return costumerNr;
     }
 
-    public Transaction[] getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(Transaction[] transactions) {
-        this.transactions = transactions;
+    public void setCostumerNr(int costumerNr) {
+        this.costumerNr = costumerNr;
     }
 
     public String getCurrency() {
@@ -65,5 +54,29 @@ public class Account {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public void deposit(double sum) {
+        this.amount += sum;
+    }
+
+    public void withdraw(double sum) {
+        this.amount -= sum;
+    }
+
+
+    public String covertToCSVLine() {
+        return costumerNr + "," + accNr + "," + iban + "," + amount + "," + currency;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "costumerNr='" + costumerNr + '\'' +
+                ", accNr='" + accNr + '\'' +
+                ", iban='" + iban + '\'' +
+                ", amount=" + amount +
+                ", currency='" + currency + '\'' +
+                '}';
     }
 }

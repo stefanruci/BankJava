@@ -1,27 +1,37 @@
 package com.mybank.program.models;
 
-public class SavingsAccount extends Account{
+public class SavingsAccount extends Account {
 
-    private double interest;
+    private double interestRate;
 
-    public SavingsAccount(String accNr, String iban, long amount, double interest, String costumerId, Transaction[] transactions, String currency) {
-        super(costumerId, accNr, iban, amount, currency, transactions);
-        this.interest = interest;
+    public SavingsAccount(int costumerId, String accNr, String iban, double amount, String currency, double interestRate) {
+        super(costumerId, accNr, iban, amount, currency);
+        this.interestRate = interestRate;
     }
 
-    public double getInterest() {
-        return interest;
+
+    public double getInterestRate() {
+        return interestRate;
     }
 
-    public void setInterest(double interest) {
-        this.interest = interest;
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
     }
 
+    public void monthEnd() {
+        double interest = getAmount() * interestRate / 12;
+        deposit( interest);
+    }
 
     @Override
     public String toString() {
         return "SavingsAccount{" +
-                "interest=" + interest +
+                "interest=" + interestRate +
                 "} " + super.toString();
+    }
+
+    @Override
+    public String covertToCSVLine() {
+        return super.covertToCSVLine() + "," + interestRate;
     }
 }
