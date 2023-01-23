@@ -27,8 +27,8 @@ public class BankApplication {
     public static void main(String[] args) {
 
         BankUI bankUI = new BankUI();
-
         bankUI.startProgram();
+
     }
 }
 /**

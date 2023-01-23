@@ -89,7 +89,7 @@ public class BankUI {
         costumerDashboardMenuHandler(c);
     }
 
-    public void costumerDashboardMenuHandler(char c) {
+    private void costumerDashboardMenuHandler(char c) {
         switch (c) {
             case 'd':
                 depositMenu();
@@ -455,7 +455,7 @@ public class BankUI {
         return initTransNr;
     }
 
-    public void reset() {
+    private void reset() {
         bank = null;
         costumer = null;
         choice = -1;
